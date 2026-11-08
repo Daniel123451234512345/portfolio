@@ -1,1 +1,359 @@
-<h1>Daniel Ho</h1>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Ho · I turn messy data into clear stories</title>
+  <meta name="description" content="Daniel Ho, a Statistics & Data Science student at UT Austin. Projects in forecasting, dashboards, simulation and AI agents.">
+  <meta name="theme-color" content="#0B0B0F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23BF5700'/%3E%3Cstop offset='1' stop-color='%23FF8A3D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%230B0B0F' text-anchor='middle'%3EDH%3C/text%3E%3C/svg%3E">
+
+  <script>
+    // Apply theme before paint (dark by default) and flag JS for reveal animations.
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        d.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+      } catch (e) { /* storage blocked: stay dark */ }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        screens: { sm: '480px', md: '720px', lg: '1024px', xl: '1200px' },
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+            display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            bg: 'var(--bg)',
+            fg: 'var(--fg)',
+            muted: 'var(--muted)',
+            accent: 'var(--accent-text)',
+            line: 'var(--line)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans text-fg antialiased">
+  <a href="#work" class="skip-link">Skip to content</a>
+
+  <!-- Floating pill nav -->
+  <header class="nav-wrap" id="top">
+    <nav class="nav-pill" aria-label="Main">
+      <a href="#top" class="logo" aria-label="Daniel Ho, back to top">DH</a>
+
+      <ul class="hidden md:flex items-center gap-1 text-sm" id="desktop-links">
+        <li><a class="nav-link" href="#stack">Stack</a></li>
+        <li><a class="nav-link" href="#work">Work</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Switch to light mode">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a href="#contact" class="btn-solid nav-cta">Let's talk</a>
+        <button type="button" class="icon-btn burger" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu-sheet">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile full-screen sheet -->
+  <div class="sheet" id="menu-sheet" aria-hidden="true">
+    <ul class="flex flex-col gap-2">
+      <li><a class="sheet-link" href="#stack">Stack</a></li>
+      <li><a class="sheet-link" href="#work">Work</a></li>
+      <li><a class="sheet-link" href="#about">About</a></li>
+      <li><a class="sheet-link" href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-solid sheet-cta">Let's talk</a>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero relative overflow-hidden" aria-labelledby="hero-title">
+      <div class="aurora" aria-hidden="true">
+        <span class="aurora__blob aurora__blob--1"></span>
+        <span class="aurora__blob aurora__blob--2"></span>
+        <span class="aurora__blob aurora__blob--3"></span>
+      </div>
+
+      <div class="relative mx-auto max-w-6xl px-5 md:px-8 pt-36 md:pt-44 pb-16 md:pb-24 text-center">
+        <p class="badge reveal"><span class="badge__dot" aria-hidden="true"></span>Open to Summer 2027 internships</p>
+
+        <p id="hero-title" class="hero-title font-display font-bold mt-7 mx-auto max-w-4xl reveal">
+          I turn messy data into <em class="grad-text">clear stories</em>.
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-baseline justify-center gap-x-2 text-base md:text-lg text-muted reveal">
+          <h1 class="font-semibold text-fg">Daniel Ho</h1>
+          <span><span class="hidden sm:inline" aria-hidden="true">· </span>Statistics &amp; Data Science @ UT Austin</span>
+        </div>
+
+        <div class="mt-9 flex flex-wrap justify-center gap-3 reveal">
+          <a href="#work" class="btn-solid">See my work
+            <svg class="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" class="btn-ghost">Get in touch</a>
+        </div>
+
+        <!-- Animated scatter plot -->
+        <div class="plot-card glass mt-14 md:mt-20 mx-auto max-w-3xl reveal">
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-5 pt-4 text-xs text-muted">
+            <span class="font-medium">metrobike_hourly.csv</span>
+            <span class="font-mono">ŷ = 0.82x + 3.1 · R² = 0.91</span>
+          </div>
+          <svg class="plot" viewBox="0 0 640 260" role="img" aria-label="Scatter plot with an upward regression line">
+            <defs>
+              <linearGradient id="fit-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#BF5700"/>
+                <stop offset="1" stop-color="#FF8A3D"/>
+              </linearGradient>
+            </defs>
+            <g class="plot__grid">
+              <line x1="30" y1="230" x2="620" y2="230"/>
+              <line x1="30" y1="170" x2="620" y2="170"/>
+              <line x1="30" y1="110" x2="620" y2="110"/>
+              <line x1="30" y1="50" x2="620" y2="50"/>
+            </g>
+            <g class="plot__pts">
+              <circle cx="52" cy="212" r="4"/><circle cx="74" cy="198" r="4"/><circle cx="92" cy="216" r="4"/>
+              <circle cx="115" cy="190" r="4"/><circle cx="138" cy="202" r="4"/><circle cx="160" cy="176" r="4"/>
+              <circle cx="182" cy="186" r="4"/><circle cx="205" cy="160" r="4"/><circle cx="226" cy="174" r="4"/>
+              <circle cx="250" cy="150" r="4"/><circle cx="272" cy="162" r="4"/><circle cx="296" cy="136" r="4"/>
+              <circle cx="318" cy="148" r="4"/><circle cx="340" cy="122" r="4"/><circle cx="362" cy="134" r="4"/>
+              <circle cx="386" cy="108" r="4"/><circle cx="408" cy="120" r="4"/><circle cx="430" cy="96" r="4"/>
+              <circle cx="454" cy="104" r="4"/><circle cx="476" cy="80" r="4"/><circle cx="498" cy="92" r="4"/>
+              <circle cx="522" cy="68" r="4"/><circle cx="546" cy="78" r="4"/><circle cx="570" cy="56" r="4"/>
+              <circle cx="594" cy="66" r="4"/><circle cx="196" cy="128" r="4"/><circle cx="420" cy="150" r="4"/>
+            </g>
+            <line class="plot__fit" x1="40" y1="214" x2="606" y2="58"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools marquee + stats -->
+    <section id="stack" class="py-16 md:py-20">
+      <p class="text-center text-xs font-semibold uppercase tracking-[0.18em] text-muted reveal">Tools I work with</p>
+      <div class="marquee mt-6 reveal" aria-label="Tools I work with">
+        <ul class="marquee__track">
+          <li>Python</li><li>R</li><li>SQL</li><li>pandas</li><li>scikit-learn</li><li>tidyverse</li>
+          <li>ggplot2</li><li>Jupyter</li><li>Git</li><li>Docker</li><li>Claude Code</li><li>Switch</li>
+        </ul>
+        <ul class="marquee__track" aria-hidden="true">
+          <li>Python</li><li>R</li><li>SQL</li><li>pandas</li><li>scikit-learn</li><li>tidyverse</li>
+          <li>ggplot2</li><li>Jupyter</li><li>Git</li><li>Docker</li><li>Claude Code</li><li>Switch</li>
+        </ul>
+      </div>
+
+      <div class="mx-auto max-w-6xl px-5 md:px-8 mt-16 md:mt-20">
+        <dl class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="glass stat reveal">
+            <dt class="text-sm text-muted">projects shipped</dt>
+            <dd class="stat__num grad-text font-display"><span data-count="4">4</span></dd>
+          </div>
+          <div class="glass stat reveal">
+            <dt class="text-sm text-muted">datasets wrangled</dt>
+            <dd class="stat__num grad-text font-display"><span data-count="12">12</span>+</dd>
+          </div>
+          <div class="glass stat reveal">
+            <dt class="text-sm text-muted">AI crew run from my phone</dt>
+            <dd class="stat__num grad-text font-display"><span data-count="1">1</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Bento projects -->
+    <section id="work" class="py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow">Selected work</p>
+          <h2 class="section-title font-display font-bold mt-3">Things I've built and questions I couldn't drop.</h2>
+        </div>
+
+        <div class="bento mt-12">
+          <!-- Featured: Pocket Crew -->
+          <article class="tile glass tile--featured reveal">
+            <div class="tile__body">
+              <p class="tile__kicker">Featured · Hackathon, Nov 2026</p>
+              <h3 class="tile__title font-display">Pocket Crew</h3>
+              <p class="tile__desc">A crew of AI agents I run from my phone through Switch. Claude builds, a different AI tests, and nothing ships until I say so.</p>
+              <ul class="tags"><li>Switch</li><li>Claude Code</li><li>OpenCode</li><li>GitHub Pages</li></ul>
+              <a class="tile__link" href="https://github.com/Daniel123451234512345/pocket-crew" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">→</span></a>
+            </div>
+
+            <div class="chat" aria-label="Example chat between the crew">
+              <div class="chat__msg">
+                <span class="chat__who">builder</span>
+                <p>Added dark mode. tester, please check it.</p>
+              </div>
+              <div class="chat__msg">
+                <span class="chat__who">tester</span>
+                <p>Passes ✅ Toggle works and is remembered on reload.</p>
+              </div>
+              <div class="chat__msg chat__msg--me">
+                <span class="chat__who">Daniel</span>
+                <p>ship it ✅</p>
+              </div>
+              <div class="chat__msg">
+                <span class="chat__who">builder</span>
+                <p>Shipped 🚀 live in ~1 min</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bikeshare -->
+          <article class="tile glass reveal">
+            <svg class="mini" viewBox="0 0 200 70" aria-hidden="true">
+              <path class="mini__area" d="M0 58 L20 50 L40 54 L60 36 L80 42 L100 24 L120 30 L140 16 L160 22 L180 10 L200 14 L200 70 L0 70 Z"/>
+              <path class="mini__line" d="M0 58 L20 50 L40 54 L60 36 L80 42 L100 24 L120 30 L140 16 L160 22 L180 10 L200 14"/>
+            </svg>
+            <p class="tile__kicker">Forecasting</p>
+            <h3 class="tile__title font-display">Austin Bikeshare Demand</h3>
+            <p class="tile__desc">Regression on MetroBike trip data to forecast hourly rides by station from weather, time of day and class schedules.</p>
+            <ul class="tags"><li>Python</li><li>pandas</li><li>scikit-learn</li></ul>
+            <a class="tile__link" href="https://github.com/Daniel123451234512345" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- GPA -->
+          <article class="tile glass reveal">
+            <svg class="mini" viewBox="0 0 200 70" aria-hidden="true">
+              <rect class="mini__bar" x="6" y="44" width="22" height="26" rx="4"/>
+              <rect class="mini__bar" x="38" y="22" width="22" height="48" rx="4"/>
+              <rect class="mini__bar mini__bar--hi" x="70" y="6" width="22" height="64" rx="4"/>
+              <rect class="mini__bar" x="102" y="18" width="22" height="52" rx="4"/>
+              <rect class="mini__bar" x="134" y="38" width="22" height="32" rx="4"/>
+              <rect class="mini__bar" x="166" y="54" width="22" height="16" rx="4"/>
+            </svg>
+            <p class="tile__kicker">Dashboard</p>
+            <h3 class="tile__title font-display">Longhorn GPA Explorer</h3>
+            <p class="tile__desc">Grade distributions by course and instructor in one interactive dashboard, so picking classes feels less like a coin flip.</p>
+            <ul class="tags"><li>R</li><li>Shiny</li><li>ggplot2</li></ul>
+            <a class="tile__link" href="https://github.com/Daniel123451234512345" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- March Madness -->
+          <article class="tile glass reveal">
+            <svg class="mini" viewBox="0 0 200 70" aria-hidden="true">
+              <path class="mini__bracket" d="M4 6 H34 V20 H4 M34 13 H60 M4 50 H34 V64 H4 M34 57 H60 M60 13 V57 M60 35 H96"/>
+              <path class="mini__bracket" d="M196 6 H166 V20 H196 M166 13 H140 M196 50 H166 V64 H196 M166 57 H140 M140 13 V57 M140 35 H104"/>
+              <circle class="mini__dot" cx="100" cy="35" r="6"/>
+            </svg>
+            <p class="tile__kicker">Simulation</p>
+            <h3 class="tile__title font-display">March Madness Bracket Model</h3>
+            <p class="tile__desc">Logistic-regression win probabilities fed into a 10,000-run Monte Carlo simulation of the whole bracket.</p>
+            <ul class="tags"><li>Python</li><li>NumPy</li><li>Logistic regression</li></ul>
+            <a class="tile__link" href="https://github.com/Daniel123451234512345" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About + How I work -->
+    <section id="about" class="py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8 grid gap-12 md:grid-cols-2 md:gap-16">
+        <div class="reveal">
+          <p class="eyebrow">About</p>
+          <h2 class="section-title font-display font-bold mt-3">Stats student. Builder. Question asker.</h2>
+          <div class="mt-6 space-y-4 text-base md:text-lg leading-relaxed text-muted">
+            <p><span class="text-fg">I'm a first-year Statistics &amp; Data Science student at UT Austin.</span> I like taking a messy spreadsheet, asking it a sharp question, and coming back with a chart that actually answers it.</p>
+            <p>I work mostly in Python and R, and lately I've been building with AI agents, like a crew of them I run from my phone. Right now I'm learning statistical modeling: regression, resampling, and spotting when a model is lying to me.</p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="eyebrow">How I work</p>
+          <ol class="steps mt-5">
+            <li class="glass step">
+              <span class="step__n font-display">01</span>
+              <div><h3 class="step__t">Ask a sharp question</h3><p class="step__d">Pin down what decision the data should help with before touching it.</p></div>
+            </li>
+            <li class="glass step">
+              <span class="step__n font-display">02</span>
+              <div><h3 class="step__t">Wrangle &amp; model</h3><p class="step__d">Clean, explore and fit the simplest model that holds up to checking.</p></div>
+            </li>
+            <li class="glass step">
+              <span class="step__n font-display">03</span>
+              <div><h3 class="step__t">Ship a clear story</h3><p class="step__d">One chart, one takeaway, and the code so anyone can rerun it.</p></div>
+            </li>
+          </ol>
+
+          <ol class="timeline mt-10">
+            <li>
+              <span class="timeline__date">Nov 2026</span>
+              <p class="timeline__t">Flip the Switch Hackathon</p>
+              <p class="timeline__d">Built Pocket Crew solo in four days.</p>
+            </li>
+            <li>
+              <span class="timeline__date">2026 – 2030</span>
+              <p class="timeline__t">B.S. Statistics &amp; Data Science</p>
+              <p class="timeline__d">The University of Texas at Austin</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="contact" class="py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="cta-card reveal">
+          <div class="cta-card__glow" aria-hidden="true"></div>
+          <p class="eyebrow relative">Contact</p>
+          <h2 class="cta-title font-display font-bold relative mt-4">Let's build something <em class="grad-text">with data</em>.</h2>
+          <p class="relative mt-4 max-w-xl mx-auto text-muted md:text-lg">Internships, research, or a dataset you can't stop thinking about. My inbox is open.</p>
+
+          <div class="relative mt-9 flex flex-wrap justify-center gap-3">
+            <a class="btn-solid" href="mailto:ddh2962@eid.utexas.edu">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
+              Email me
+            </a>
+            <button type="button" class="btn-ghost" id="copy-email" data-email="ddh2962@eid.utexas.edu">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              Copy email
+            </button>
+            <a class="btn-ghost" href="https://github.com/Daniel123451234512345" target="_blank" rel="noopener noreferrer">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a class="btn-ghost" href="#" aria-label="LinkedIn (coming soon)">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-6xl px-5 md:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted text-center">
+      <p>© 2026 Daniel Ho · Built with a Pocket Crew of AI agents.</p>
+      <a href="#top" class="footer-link">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
